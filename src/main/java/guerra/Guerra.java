@@ -78,7 +78,7 @@ public class Guerra {
 		try {
 			Guerrero guerrero1 = new GuerreroImperioGalactico("Darth Vader", "Sith", 10, 0);
 			Guerrero guerrero2 = new GuerreroImperioGalactico("Tarkin", "Gran Moff", 10, 0);
-			Guerrero guerrero3 = new GuerreroImperioGalactico("soldado", "Soldado de asalto", 10, 0);
+			Guerrero guerrero3 = new GuerreroImperioGalactico("Soldado", "Soldado de asalto", 10, 0);
 			
 			try {
 				vehiculo.embarcar(guerrero1, guerrero2, guerrero3, guerrero3, guerrero3, guerrero3, guerrero3, guerrero3, guerrero3, guerrero3);

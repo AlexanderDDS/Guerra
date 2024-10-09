@@ -24,7 +24,7 @@ public class CampoGuerraEjemplo {
 		try {
 			Guerrero guerrero1 = new GuerreroRebelde("Luke Skywalker", "Jedi", 5, 5);
 			Guerrero guerrero2 = new GuerreroRebelde("Han Solo", "Contrabandista", 5, 5);
-			Guerrero guerrero3 = new GuerreroRebelde("soldado", "Soldado", 5, 5);
+			Guerrero guerrero3 = new GuerreroRebelde("Soldado", "Soldado rebelde", 5, 5);
 			try {
 				vehiculo.embarcar(guerrero1, guerrero2, guerrero3, guerrero3, guerrero3, guerrero3, guerrero3, guerrero3, guerrero3, guerrero3);
 			} catch (ExceedsVehicleCapacityException evce) {
