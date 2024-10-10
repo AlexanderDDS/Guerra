@@ -85,7 +85,15 @@ public abstract class VehiculoGuerra implements Tripulable{
 		}
 		this.puntosVida -= puntosVidaPerdidos;
 		System.out.println(this.nombre+" tiene una defensa de "+defensaVehiculo+" puntos, y pierde "+puntosVidaPerdidos+" puntos de vida");
-		System.out.println(this.nombre+" le quedan "+this.puntosVida+" puntos de vida");
+		mostrarHp();
+	}
+	private void mostrarHp() {
+		System.out.print(ConsoleColors.RESET+this.nombre+"= "+ConsoleColors.RED_BACKGROUND+ConsoleColors.RED_BOLD_BRIGHT+"|");
+		for (int i=0 ; i<=this.puntosVida; i+=50) {
+			System.out.print("_|");
+		}
+		System.out.print(ConsoleColors.RESET);
+		System.out.println(this.puntosVida+"HP");
 	}
 	/**
 	Método que recibe objetos de tipo Guerrero y los introduce en este objeto tipo de tipo VehiculoGuerra

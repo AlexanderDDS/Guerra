@@ -27,17 +27,16 @@ public class Guerra {
 	@param int ataqueEnemigo
 	*/
 	public static void combate(VehiculoGuerra vehiculo1, VehiculoGuerra vehiculo2) {
+		Guerra guerra = new Guerra();
 		while (vehiculo1.getPuntosVida()>0||vehiculo2.getPuntosVida()>0) {
 			System.out.print(ConsoleColors.PURPLE_BOLD_BRIGHT);
 			vehiculo2.defender(vehiculo1.atacar());
-			System.out.print(ConsoleColors.RESET);
 			if (vehiculo2.getPuntosVida()<=0) {
 				System.out.println(ConsoleColors.RED_BOLD_BRIGHT+vehiculo2.getNombre()+" ha sido destruido!!"+ConsoleColors.RESET);
 				break;
 			}
 			System.out.print(ConsoleColors.BLUE_BOLD_BRIGHT);
 			vehiculo1.defender(vehiculo2.atacar());
-			System.out.println(ConsoleColors.RESET);
 			if (vehiculo1.getPuntosVida()<=0) {
 				System.out.println(ConsoleColors.RED_BOLD_BRIGHT+vehiculo1.getNombre()+" ha sido destruido!!"+ConsoleColors.RESET);
 				break;
