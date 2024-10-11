@@ -1,0 +1,2 @@
+NaveRebelde;T-47;10;0
+GuerreroRebelde;Soldado;soldado;10;0;10

@@ -13,6 +13,11 @@ public abstract class VehiculoGuerra implements Tripulable{
 	private int defensa;
 	private String nombre;
 	private List<Guerrero> guerreros;
+	/**
+	Constructor que necesita un String nombre para crear un objeto de tipo VehiculoGuerra con 1000 puntos de vida, 5 ataque y 5 defensa
+	@param String nombre
+	@return VehiculoGuerra
+	*/
 	public VehiculoGuerra(String nombre){
 		super();
 		this.puntosVida = 1000;
@@ -21,6 +26,11 @@ public abstract class VehiculoGuerra implements Tripulable{
 		this.nombre = nombre;
 		this.guerreros = new ArrayList();
 	}
+	/**
+	Constructor que necesita un String nombre, int ataque e int defensa para crear un objeto de tipo VehiculoGuerra con 1000 puntos de vida
+	@param String nombre, int ataque, int defensa
+	@return VehiculoGuerra
+	*/
 	public VehiculoGuerra(String nombre, int ataque, int defensa) throws ExceedsStatsLimits{
 		super();
 		this.puntosVida = 1000;
@@ -88,7 +98,7 @@ public abstract class VehiculoGuerra implements Tripulable{
 		mostrarHp();
 	}
 	private void mostrarHp() {
-		System.out.print(ConsoleColors.RESET+this.nombre+"= "+ConsoleColors.RED_BACKGROUND+ConsoleColors.RED_BOLD_BRIGHT+"|");
+		System.out.print(this.nombre+"= "+ConsoleColors.RED_BACKGROUND+ConsoleColors.RED_BOLD_BRIGHT+"|");
 		for (int i=0 ; i<=this.puntosVida; i+=50) {
 			System.out.print("_|");
 		}
@@ -101,17 +111,36 @@ public abstract class VehiculoGuerra implements Tripulable{
 	*/
 	public final void embarcar(Guerrero... guerreros) throws ExceedsVehicleCapacityException{
 		for (Guerrero guerrero : guerreros) {
-			System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+guerrero.getNombre()+" está embarcando el vehículo "+this.nombre+ConsoleColors.RESET);
-			this.guerreros.add(guerrero);
-			if (this.guerreros.size()>10) {
+			if (this.guerreros.size()>=10) {
 				ExceedsVehicleCapacityException evce = new ExceedsVehicleCapacityException("No pueden haber más de 10 guerreros en un vehículo");
 				throw evce;
+			}else {
+				System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+guerrero.getNombre()+" está embarcando el vehículo "+this.nombre+ConsoleColors.RESET);
+				this.guerreros.add(guerrero);
 			}
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException ie) {
 				ie.getMessage();
 			}
+		}
+	}
+	/**
+	Método que recibe un objeto de tipo Guerrero y lo introduce en este objeto tipo de tipo VehiculoGuerra
+	@param Guerrero guerrero
+	*/
+	public final void embarcar(Guerrero guerrero) throws ExceedsVehicleCapacityException{
+		if (this.guerreros.size()>=10) {
+			ExceedsVehicleCapacityException evce = new ExceedsVehicleCapacityException("No pueden haber más de 10 guerreros en un vehículo");
+			throw evce;
+		}else {
+			System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT+guerrero.getNombre()+" está embarcando el vehículo "+this.nombre+ConsoleColors.RESET);
+			this.guerreros.add(guerrero);
+		}
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException ie) {
+			ie.getMessage();
 		}
 	}
 }

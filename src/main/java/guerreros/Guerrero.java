@@ -7,6 +7,11 @@ public abstract class Guerrero {
 	private String tipo;
 	private int fuerza;
 	private int resistencia;
+	/**
+	Constructor que necesita un String nombre, String tipo, int fuerza e int resistencia para crear un objeto de tipo Guerrero
+	@param String nombre, String tipo, int fuerza, int resistencia
+	@return Guerrero
+	*/
 	public Guerrero(String nombre, String tipo, int fuerza, int resistencia) throws ExceedsStatsLimits{
 		super();
 		this.nombre = nombre;
