@@ -6,15 +6,15 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import excepciones.ExceedsStatsLimits;
-import excepciones.ExceedsVehicleCapacityException;
-import guerra.Guerra;
-import guerreros.Guerrero;
-import guerreros.GuerreroImperioGalactico;
-import guerreros.GuerreroRebelde;
-import vehiculos.NaveRebelde;
-import vehiculos.VehiculoGuerra;
-import vehiculos.VehiculoTerrestreImperial;
+import com.curso.java.guerra.Guerra;
+import com.curso.java.guerra.excepciones.ExceedsStatsLimits;
+import com.curso.java.guerra.excepciones.ExceedsVehicleCapacityException;
+import com.curso.java.guerra.guerreros.Guerrero;
+import com.curso.java.guerra.guerreros.GuerreroImperioGalactico;
+import com.curso.java.guerra.guerreros.GuerreroRebelde;
+import com.curso.java.guerra.vehiculos.NaveRebelde;
+import com.curso.java.guerra.vehiculos.VehiculoGuerra;
+import com.curso.java.guerra.vehiculos.VehiculoTerrestreImperial;
 
 public class GuerraTest {
 	VehiculoGuerra vehiculo1;
@@ -23,7 +23,11 @@ public class GuerraTest {
 	Guerrero guerrero2;
 	@Before
 	public void crearVehiculos() {
-		vehiculo1 = new VehiculoTerrestreImperial("vehiculo1");
+		try {
+			vehiculo1 = new VehiculoTerrestreImperial("vehiculo1");
+		} catch (ExceedsStatsLimits e) {
+			e.printStackTrace();
+		}
 		try {
 			vehiculo2 = new NaveRebelde("vehiculo2", 3, 4);
 		} catch (ExceedsStatsLimits esl) {

@@ -1,6 +1,6 @@
-package guerreros;
+package com.curso.java.guerra.guerreros;
 
-import excepciones.ExceedsStatsLimits;
+import com.curso.java.guerra.excepciones.ExceedsStatsLimits;
 
 public abstract class Guerrero {
 	private String nombre;

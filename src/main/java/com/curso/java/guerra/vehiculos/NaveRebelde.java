@@ -1,10 +1,10 @@
-package vehiculos;
+package com.curso.java.guerra.vehiculos;
 
-import excepciones.ExceedsStatsLimits;
+import com.curso.java.guerra.excepciones.ExceedsStatsLimits;
 
 public class NaveRebelde extends VehiculoGuerra{
 
-	public NaveRebelde(String nombre) {
+	public NaveRebelde(String nombre) throws ExceedsStatsLimits {
 		super(nombre);
 	}
 

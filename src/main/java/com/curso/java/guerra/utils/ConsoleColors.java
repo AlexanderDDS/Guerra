@@ -1,4 +1,4 @@
-package utils;
+package com.curso.java.guerra.utils;
 
 public class ConsoleColors {
     // Reset

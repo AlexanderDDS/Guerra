@@ -1,10 +1,10 @@
-package vehiculos;
+package com.curso.java.guerra.vehiculos;
 
-import excepciones.ExceedsStatsLimits;
+import com.curso.java.guerra.excepciones.ExceedsStatsLimits;
 
 public class VehiculoTerrestreImperial extends VehiculoGuerra{
 	
-	public VehiculoTerrestreImperial(String nombre) {
+	public VehiculoTerrestreImperial(String nombre) throws ExceedsStatsLimits {
 		super(nombre);
 	}
 

@@ -1,4 +1,4 @@
-package vehiculos;
+package com.curso.java.guerra.interfaces;
 
 
 public interface Tripulable {

@@ -1,14 +1,15 @@
-package vehiculos;
+package com.curso.java.guerra.vehiculos;
 import java.util.ArrayList;
 import java.util.List;
 
-import excepciones.ExceedsStatsLimits;
-import excepciones.ExceedsVehicleCapacityException;
-import guerreros.Guerrero;
-import utils.ConsoleColors;
+import com.curso.java.guerra.excepciones.ExceedsStatsLimits;
+import com.curso.java.guerra.excepciones.ExceedsVehicleCapacityException;
+import com.curso.java.guerra.guerreros.Guerrero;
+import com.curso.java.guerra.interfaces.Tripulable;
+import com.curso.java.guerra.utils.ConsoleColors;
 
 public abstract class VehiculoGuerra implements Tripulable{
-	private int puntosVida;
+	private int puntosVida = 1000;
 	private int ataque;
 	private int defensa;
 	private String nombre;
@@ -17,28 +18,24 @@ public abstract class VehiculoGuerra implements Tripulable{
 	Constructor que necesita un String nombre para crear un objeto de tipo VehiculoGuerra con 1000 puntos de vida, 5 ataque y 5 defensa
 	@param String nombre
 	@return VehiculoGuerra
+	@throws ExceedsStatsLimits
 	*/
-	public VehiculoGuerra(String nombre){
-		super();
-		this.puntosVida = 1000;
-		this.ataque = 5;
-		this.defensa = 5;
-		this.nombre = nombre;
+	public VehiculoGuerra(String nombre) throws ExceedsStatsLimits{
+		this(nombre, 5, 5);
 		this.guerreros = new ArrayList();
 	}
 	/**
 	Constructor que necesita un String nombre, int ataque e int defensa para crear un objeto de tipo VehiculoGuerra con 1000 puntos de vida
 	@param String nombre, int ataque, int defensa
 	@return VehiculoGuerra
+	@throws ExceedsStatsLimits
 	*/
 	public VehiculoGuerra(String nombre, int ataque, int defensa) throws ExceedsStatsLimits{
 		super();
-		this.puntosVida = 1000;
 		this.ataque = ataque;
 		this.defensa = defensa;
 		if (this.ataque+this.defensa>10) {
-			ExceedsStatsLimits esl = new ExceedsStatsLimits("La suma del ataque y defensa de un vehículo no puede sobrepasar 10");
-			throw esl;
+			throw new ExceedsStatsLimits("La suma del ataque y defensa de un vehículo no puede sobrepasar 10");
 		}
 		this.nombre = nombre;
 		this.guerreros = new ArrayList();
@@ -108,6 +105,7 @@ public abstract class VehiculoGuerra implements Tripulable{
 	/**
 	Método que recibe objetos de tipo Guerrero y los introduce en este objeto tipo de tipo VehiculoGuerra
 	@param Guerrero... guerreros
+	@throws ExceedsVehicleCapacityException 
 	*/
 	public final void embarcar(Guerrero... guerreros) throws ExceedsVehicleCapacityException{
 		for (Guerrero guerrero : guerreros) {
@@ -128,6 +126,7 @@ public abstract class VehiculoGuerra implements Tripulable{
 	/**
 	Método que recibe un objeto de tipo Guerrero y lo introduce en este objeto tipo de tipo VehiculoGuerra
 	@param Guerrero guerrero
+	@throws ExceedsVehicleCapacityException 
 	*/
 	public final void embarcar(Guerrero guerrero) throws ExceedsVehicleCapacityException{
 		if (this.guerreros.size()>=10) {

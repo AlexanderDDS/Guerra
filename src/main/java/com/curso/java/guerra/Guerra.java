@@ -1,4 +1,4 @@
-package guerra;
+package com.curso.java.guerra;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,15 +7,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import excepciones.ExceedsStatsLimits;
-import excepciones.ExceedsVehicleCapacityException;
-import guerreros.Guerrero;
-import guerreros.GuerreroImperioGalactico;
-import guerreros.GuerreroRebelde;
-import utils.ConsoleColors;
-import vehiculos.NaveRebelde;
-import vehiculos.VehiculoGuerra;
-import vehiculos.VehiculoTerrestreImperial;
+import com.curso.java.guerra.excepciones.ExceedsStatsLimits;
+import com.curso.java.guerra.excepciones.ExceedsVehicleCapacityException;
+import com.curso.java.guerra.guerreros.Guerrero;
+import com.curso.java.guerra.guerreros.GuerreroImperioGalactico;
+import com.curso.java.guerra.guerreros.GuerreroRebelde;
+import com.curso.java.guerra.utils.ConsoleColors;
+import com.curso.java.guerra.vehiculos.NaveRebelde;
+import com.curso.java.guerra.vehiculos.VehiculoGuerra;
+import com.curso.java.guerra.vehiculos.VehiculoTerrestreImperial;
 
 public class Guerra {
 	/**
@@ -23,12 +23,12 @@ public class Guerra {
 	@param VehiculoGuerra vehiculo
 	*/
 	public static void empezarGuerra(VehiculoGuerra vehiculo) {
-		Guerra campoGuerra = new Guerra();
+		Guerra guerra = new Guerra();
 		System.out.println("");
-		VehiculoGuerra vehiculoPreestablecido = campoGuerra.crearVehiculoPreestablecido();
+		VehiculoGuerra vehiculoPreestablecido = guerra.crearVehiculoPreestablecido();
 		System.out.println("Vehículo Preestablecido = "+ConsoleColors.YELLOW_BACKGROUND_BRIGHT+ConsoleColors.BLACK_BOLD_BRIGHT+vehiculoPreestablecido+ConsoleColors.RESET);
-		campoGuerra.mostrarLogo();
-		combate(vehiculoPreestablecido, vehiculo);
+		guerra.mostrarLogo();
+		Guerra.combate(vehiculoPreestablecido, vehiculo);
 	}
 	/**
 	Método que necesita un objeto tipo File (fichero), a partir del cual crea un vehiculo que lucha contra otro vehículo preestablecido.
@@ -49,7 +49,7 @@ public class Guerra {
 						vehiculoContrincante = guerra.crearVehiculoConGuerreros(fichero);
 						System.out.println("Vehículo Contrincante = "+ConsoleColors.YELLOW_BACKGROUND_BRIGHT+ConsoleColors.BLACK_BOLD_BRIGHT+vehiculoContrincante+ConsoleColors.RESET);
 						guerra.mostrarLogo();
-						combate(vehiculoPreestablecido, vehiculoContrincante);
+						Guerra.combate(vehiculoPreestablecido, vehiculoContrincante);
 					} catch (IOException e) {
 						e.printStackTrace();
 					}

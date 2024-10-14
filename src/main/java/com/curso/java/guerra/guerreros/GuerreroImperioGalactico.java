@@ -1,6 +1,6 @@
-package guerreros;
+package com.curso.java.guerra.guerreros;
 
-import excepciones.ExceedsStatsLimits;
+import com.curso.java.guerra.excepciones.ExceedsStatsLimits;
 
 public class GuerreroImperioGalactico extends Guerrero{
 	public GuerreroImperioGalactico(String nombre, String tipo, int fuerza, int resistencia) throws ExceedsStatsLimits {
