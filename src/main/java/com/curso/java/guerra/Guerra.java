@@ -69,7 +69,7 @@ public class Guerra {
 	*/
 	public static void combate(VehiculoGuerra vehiculo1, VehiculoGuerra vehiculo2) {
 		Guerra guerra = new Guerra();
-		while (vehiculo1.getPuntosVida()>0||vehiculo2.getPuntosVida()>0) {
+		while (vehiculo1.getPuntosVida()>0&&vehiculo2.getPuntosVida()>0) {
 			System.out.println(ConsoleColors.PURPLE_BOLD_BRIGHT);
 			vehiculo2.defender(vehiculo1.atacar());
 			if (vehiculo2.getPuntosVida()<=0) {
